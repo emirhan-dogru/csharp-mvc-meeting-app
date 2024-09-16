@@ -17,7 +17,7 @@ namespace MeetingApp.Controllers
             var meetingInfo = new MeetingInfo()
             {
                 Id = 1,
-                Location = "İstanbul Abc Kongre mekezi",
+                Location = "İstanbul Abc Kongre Merkezi",
                 Date = new DateTime(2024, 09, 24, 20, 0, 0),
                 NumberOfPeople = Repository.Users.Where(u => u.WillAttend == true).Count()
             };

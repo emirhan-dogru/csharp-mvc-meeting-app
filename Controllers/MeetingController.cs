@@ -11,6 +11,11 @@ namespace MeetingApp.Controllers
 {
     public class MeetingController : Controller
     {
+        public IActionResult Index()
+        {
+            return RedirectToAction("Index" , "Home");
+        }
+        
         public IActionResult Apply()
         {
             return View();
@@ -24,13 +29,18 @@ namespace MeetingApp.Controllers
                 Repository.AddUser(model);
                 ViewBag.UserCount = Repository.Users.Where(u => u.WillAttend == true).Count();
                 return View("Thanks", model);
-            } 
+            }
             return View(model);
         }
 
         public IActionResult List()
         {
             return View(Repository.Users);
+        }
+
+        public IActionResult Details(int id)
+        {
+            return View(Repository.GetUserById(id));
         }
     }
 }
